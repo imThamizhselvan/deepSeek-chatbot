@@ -7,6 +7,12 @@ import { fileURLToPath } from 'url';
 // Load environment variables
 dotenv.config();
 
+// Verify API key is present
+if (!process.env.DEEPSEEK_API_KEY) {
+    console.error('DEEPSEEK_API_KEY is not set in environment variables');
+    process.exit(1);
+}
+
 // Define __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -18,6 +24,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 const openai = new OpenAI({
     baseURL: 'https://api.deepseek.com',
     apiKey: process.env.DEEPSEEK_API_KEY
+});
+
+// Add error handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ error: 'Something went wrong!' });
 });
 
 app.post('/chat', async (req, res) => {
