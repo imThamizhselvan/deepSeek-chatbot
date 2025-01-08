@@ -23,11 +23,11 @@ jobs:
 
     - name: Create .env file
       run: |
-        echo "DEEPSEEK_API_KEY=${{ secrets.DEEPSEEK_API_KEY }}" > .env
+        echo "DEEPSEEK_API_KEY=${{ secrets.VITE_DEEPSEEK_API_KEY }}" > .env
 
     - name: Build and Test
       env:
-        DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        DEEPSEEK_API_KEY: ${{ secrets.VITE_DEEPSEEK_API_KEY }}
       run: |
         npm run build --if-present
         npm test --if-present 
