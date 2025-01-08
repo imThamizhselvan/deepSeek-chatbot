@@ -12,7 +12,7 @@ A modern chat application powered by DeepSeek AI, built with React and Vite.
 
 ## Demo
 
-[Live Demo](your-demo-link-here)
+[Live Demo](https://deepseekai.netlify.app/)
 
 ## Prerequisites
 
