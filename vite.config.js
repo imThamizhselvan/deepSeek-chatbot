@@ -18,9 +18,6 @@ export default defineConfig({
     extensions: ['.js', '.jsx']
   },
   server: {
-    headers: {
-      'Content-Type': 'application/javascript'
-    },
-    middlewareMode: true
+    middlewareMode: false
   }
 }); 
