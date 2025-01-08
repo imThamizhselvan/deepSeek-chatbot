@@ -1,6 +1,4 @@
-const API_KEY = import.meta.env.VITE_DEEPSEEK_API_KEY;
-
-const API_URL = 'https://api.deepseek.com/v1/chat/completions';
+const API_URL = '/.netlify/functions/chat';
 
 export const sendMessage = async (message) => {
   try {
@@ -8,7 +6,6 @@ export const sendMessage = async (message) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${API_KEY}`
       },
       body: JSON.stringify({
         messages: [{ role: "user", content: message }],
