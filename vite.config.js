@@ -14,11 +14,13 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src')
-    }
+    },
+    extensions: ['.js', '.jsx']
   },
   server: {
     headers: {
       'Content-Type': 'application/javascript'
-    }
+    },
+    middlewareMode: true
   }
 }); 
